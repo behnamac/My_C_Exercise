@@ -4,43 +4,41 @@
 
 char	*ft_strcapitalize(char *str)
 {
-	unsigned int	i;
-	char		c;
-	int		new_word;
+	int isCapitalLetter;
+	int i;
 
 	i = 0;
-	new_word = 1;
-	while (str[i] != '\0')
+	isCapitalLetter = 1;
+	while(str[i]!='\0')
 	{
-		c = str[i];
-		if (new_word == 1 && c >= 'a' && c <= 'z')
+		if((isCapitalLetter == 1) && (str[i] >= 'a' && str[i] <= 'z'))
 		{
-			str[i] = str[i] - 32;
+			str[i] -= 32;
 		}
-		else if (new_word == 0 && c >= 'A' && c <= 'Z')
+		else if (isCapitalLetter == 0 && (str[i] >= 'A' && str[i]<='Z'))
 		{
-			str[i] = str[i] + 32;
-
+			str[i] += 32;
 		}
-		if (c < '0' || (c > '9' && c < 'A') || (c > 'Z' && c < 'a') || c > 'z')
+		if((str[i]<'0') || (str[i]>'9' && str[i]<'A') || (str[i]>'Z' && str[i] < 'a') || (str[i]>'z'))
 		{
-			new_word = 1;
-
+			isCapitalLetter=1;
 		}
 		else
 		{
-			new_word = 0;
-
+			isCapitalLetter = 0;
 		}
 		i++;
 	}
 	return (str);
 }
-int main()
-{
-	char arr[]="salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
-	ft_strcapitalize(arr);
-	printf("%s",arr);
-	return (0);
-}
+
+// int main()
+// {
+// 	//char arr[]="sAlUHGt, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
+// 	char arr[]="a1b2c3d4e5f6g7h8i9j0";
+
+// 	ft_strcapitalize(arr);
+// 	printf("%s",arr);
+// 	return (0);
+// }
 

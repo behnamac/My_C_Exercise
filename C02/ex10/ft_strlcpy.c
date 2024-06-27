@@ -7,21 +7,23 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	unsigned int	i;
 	unsigned int	count;
 
-	i = 0;
 	count = 0;
 	while (src[count])
+	{
 		count++;
-	if (size < 1)
+	}
+	if (size == 0)
+	{
 		return (count);
-	while (src[i] && i < size - 1)
+	}
+	for (i = 0; src[i] && i < size - 1; i++)
 	{
 		dest[i] = src[i];
-		i++;
 	}
 	dest[i] = '\0';
 	return (count);
-	
 }
+
 
 // int main()
 // {

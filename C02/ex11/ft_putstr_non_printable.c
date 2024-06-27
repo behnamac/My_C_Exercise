@@ -9,29 +9,31 @@ void	ft_putchar(char c)
 
 void	ft_convert_hexa(unsigned char c)
 {
-	char	*hexabase;
+	char *hexa;
 
-	hexabase = "0123456789abcdef";
-	if (c / 16 > 0)
+	hexa="0123456789abcdef";
+
+	if(c/16 > 0)
 	{
-		ft_putchar(hexabase[c / 16]);
-		ft_putchar(hexabase[c % 16]);
+		ft_putchar(hexa[c/16]);
+		ft_putchar(hexa[c%16]);
 	}
 	else
 	{
 		ft_putchar('0');
-		ft_putchar(hexabase[c]);
+		ft_putchar(hexa[c]);
 	}
+
 }
 
 void	ft_putstr_non_printable(char *str)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while(str[i]!='\0')
 	{
-		if (str[i] < 32 || str[i] > 126)
+		if(str[i]<32 || str[i]>126)
 		{
 			ft_putchar('\\');
 			ft_convert_hexa(str[i]);
@@ -43,11 +45,12 @@ void	ft_putstr_non_printable(char *str)
 		i++;
 	}
 }
-int main()
-{
-	char arr1[]="Coucou\ntu vas bien ?";
-	ft_putstr_non_printable(arr1);
-	ft_putchar('\\');
-	printf("%s",arr1);
-	return (0);
-}
+// int main()
+// {
+// 	char arr1[]="Couc43ou\0tu vas bien ?";
+// 	ft_putstr_non_printable(arr1);
+// 	//ft_putchar('\\');
+// 	printf("%s",arr1);
+// 	return (0);
+// }
+
